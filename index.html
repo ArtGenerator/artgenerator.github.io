@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TrainLab | Game Trainers for Steam</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#0a0a0a;color:#e0e0e0}
+header{background:linear-gradient(180deg,#1a0000 0%,#0a0a0a 100%);border-bottom:1px solid #8b0000;padding:40px 20px 30px;text-align:center}
+header h1{font-size:2.2em;letter-spacing:3px;text-transform:uppercase}
+header h1 .red{color:#cc0000}
+header h1 .white{color:#ffffff}
+header p{margin-top:8px;color:#888;font-size:.9em;letter-spacing:1px;text-transform:uppercase}
+.nav-line{display:flex;justify-content:center;gap:30px;padding:12px;background:#111;border-bottom:1px solid #1f1f1f;font-size:.8em;text-transform:uppercase}
+.nav-line a{color:#888;text-decoration:none}
+.nav-line a:hover{color:#cc0000}
+main{max-width:900px;margin:40px auto;padding:0 20px}
+.section-title{font-size:.75em;letter-spacing:3px;text-transform:uppercase;color:#cc0000;margin-bottom:15px;border-bottom:1px solid #1f1f1f;padding-bottom:8px}
+.project-list{display:flex;flex-direction:column;gap:16px;margin-bottom:50px}
+.project-item{background:#111;border:1px solid #1f1f1f;border-left:3px solid #8b0000;padding:16px 20px;border-radius:4px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.project-item:hover{border-left-color:#cc0000;background:#161616}
+.cheat-row{display:flex;align-items:center;justify-content:center;gap:10px}
+.cheat-label{font-size:.8em;font-weight:700;color:#22c55e;letter-spacing:1px;text-transform:uppercase}
+.cheat-btn{background:none;border:1px solid #22c55e;color:#22c55e;border-radius:3px;font-size:.75em;padding:4px 12px;cursor:pointer;text-transform:uppercase;letter-spacing:1px;transition:background .2s}
+.cheat-btn:hover{background:#22c55e;color:#000}
+.itch-widget iframe{border-radius:3px;max-width:100%}
+.project-tags{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.tag{font-size:.7em;padding:2px 8px;background:#1a0000;color:#cc0000;border:1px solid #3a0000;border-radius:2px;text-transform:uppercase}
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:50px}
+.info-box{background:#111;border:1px solid #1f1f1f;padding:18px;border-radius:4px;text-align:center}
+.info-box h4{font-size:.7em;letter-spacing:2px;text-transform:uppercase;color:#cc0000;margin-bottom:6px}
+.info-box p{font-size:.85em;color:#ccc}
+.icon{font-size:22px;margin-bottom:8px;display:flex;justify-content:center;align-items:center;height:26px}
+.lang-toggle{display:flex;justify-content:center;gap:10px;margin-top:5px}
+.lang-link{color:#888;text-decoration:none;font-size:0.85em;cursor:pointer;font-weight:bold}
+.lang-link.active{color:#cc0000}
+.lang-link:hover{color:#fff}
+footer{text-align:center;padding:25px;border-top:1px solid #1a1a1a;font-size:.75em;color:#444}
+.cheat-popup{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#111;border:1px solid #22c55e;border-radius:6px;padding:22px 28px 36px;z-index:999;min-width:320px;box-shadow:0 0 30px rgba(34,197,94,.25)}
+.cheat-popup.active{display:block}
+.cheat-popup h3{font-size:.75em;letter-spacing:2px;text-transform:uppercase;color:#22c55e;margin-bottom:14px;text-align:center}
+.cheat-popup ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.cheat-popup ul li{font-size:.82em;color:#ccc}
+.cheat-popup ul li strong{color:#fff}
+.cheat-close{position:absolute;bottom:10px;right:12px;font-size:.85em;color:#cc0000;cursor:pointer;line-height:1}
+.cheat-close:hover{color:#ff4444}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:998}
+.overlay.active{display:block}
+</style>
+</head>
+<body>
+<header>
+  <h1><span class="red">Train</span><span class="white">Lab</span></h1>
+  <p id="header-desc">Dedicated game trainers for Steam platform</p>
+</header>
+<nav class="nav-line">
+  <a href="https://github.com/ArtGenerator">GitHub</a>
+  <a href="https://artgenerator.itch.io">Itch.io</a>
+</nav>
+<main>
+  <p class="section-title" id="sec-trainers">Available Trainers</p>
+  <div class="project-list">
+    <div class="project-item">
+      <div class="cheat-row">
+        <span class="cheat-label" id="lbl-cheats-1">Cheats</span>
+        <button class="cheat-btn btn-view" onclick="openPopup('rip')">ⓘ View</button>
+      </div>
+      <div class="itch-widget">
+        <iframe frameborder="0" src="https://itch.io/embed/4457075?border_width=2&bg_color=110000&fg_color=e0e0e0&link_color=cc0000&border_color=8b0000" width="554" height="169">
+          <a href="https://artgenerator.itch.io/rip-trilogy-trainer">RIP Trilogy Trainer by ArtGenerator</a>
+        </iframe>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Steam</span>
+        <span class="tag">Windows x64</span>
+        <span class="tag">RIP Trilogy</span>
+      </div>
+    </div>
+    <div class="project-item">
+      <div class="cheat-row">
+        <span class="cheat-label" id="lbl-cheats-2">Cheats</span>
+        <button class="cheat-btn btn-view" onclick="openPopup('hexus')">ⓘ View</button>
+      </div>
+      <div class="itch-widget">
+        <iframe frameborder="0" src="https://itch.io/embed/4467908?border_width=2&bg_color=110000&fg_color=e0e0e0&link_color=cc0000&border_color=8b0000" width="554" height="169">
+          <a href="https://artgenerator.itch.io/hexus">Hexus Trainer by ArtGenerator</a>
+        </iframe>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Steam</span>
+        <span class="tag">Windows x64</span>
+        <span class="tag">Hexus</span>
+      </div>
+    </div>
+  </div>
+  <p class="section-title" id="sec-reqs">Requirements</p>
+  <div class="info-grid">
+    <div class="info-box">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <line x1="8" y1="21" x2="16" y2="21"/>
+          <line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+      </div>
+      <h4 id="box-platform">Platform</h4>
+      <p>Steam</p>
+    </div>
+    <div class="info-box">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="9" height="9" rx="1"/>
+          <rect x="13" y="3" width="9" height="9" rx="1"/>
+          <rect x="2" y="13" width="9" height="9" rx="1"/>
+          <rect x="13" y="13" width="9" height="9" rx="1"/>
+        </svg>
+      </div>
+      <h4 id="box-system">System</h4>
+      <p>Windows 10/11 (x64)</p>
+    </div>
+    <div class="info-box">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </div>
+      <h4 id="box-lang">Language</h4>
+      <div class="lang-toggle">
+        <span class="lang-link active" onclick="setLang('en')">EN</span>
+        <span style="color:#333">|</span>
+        <span class="lang-link" onclick="setLang('pl')">PL</span>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  <p>ArtSoft © 2026  ·  <span id="footer-rights">All rights reserved</span></p>
+</footer>
+<div class="overlay" id="overlay" onclick="closePopup()"></div>
+<div class="cheat-popup" id="popup-rip">
+  <h3 class="pop-title">Available Cheats</h3>
+  <ul>
+    <li><strong>Rapid Clip</strong> — <span id="rip-c1">fire rate and quick reload</span></li>
+    <li><strong>High Damage</strong> — <span id="rip-c2">increased weapon damage</span></li>
+    <li><strong>Infinite Health</strong> — <span id="rip-c3">damage resistance</span></li>
+  </ul>
+  <span class="cheat-close" onclick="closePopup()">✕</span>
+</div>
+<div class="cheat-popup" id="popup-hexus">
+  <h3 class="pop-title">Available Cheats</h3>
+  <ul>
+    <li><strong>Freeze Gold Coins</strong> — <span id="hex-c1">freezes the amount of gold coins</span></li>
+    <li><strong>Freeze Silver Coins</strong> — <span id="hex-c2">freezes the amount of silver coins</span></li>
+    <li><strong>Add Gold/Silver Coins</strong> — <span id="hex-c3">adds up to a max value of 5,000 each</span></li>
+  </ul>
+  <span class="cheat-close" onclick="closePopup()">✕</span>
+</div>
+<script>
+const translations = {
+  en: {
+    desc: "Dedicated game trainers for Steam platform",
+    trainers: "Available Trainers",
+    reqs: "Requirements",
+    platform: "Platform",
+    system: "System",
+    language: "Language",
+    cheats: "Cheats",
+    view: "View",
+    p_title: "Available Cheats",
+    rights: "All rights reserved",
+    r1: "fire rate and quick reload",
+    r2: "increased weapon damage",
+    r3: "damage resistance",
+    h1: "freezes the amount of gold coins",
+    h2: "freezes the amount of silver coins",
+    h3: "adds up to a max value of 5,000 each"
+  },
+  pl: {
+    desc: "Dedykowane trainery dla platformy Steam",
+    trainers: "Dostępne Trainery",
+    reqs: "Wymagania",
+    platform: "Platforma",
+    system: "System",
+    language: "Język",
+    cheats: "Cheaty",
+    view: "Podgląd",
+    p_title: "Dostępne Cheaty",
+    rights: "Wszelkie prawa zastrzeżone",
+    r1: "szybkość strzelania i przeładowania",
+    r2: "zwiększone obrażenia broni",
+    r3: "odporność na obrażenia",
+    h1: "zamraża ilość złotych monet",
+    h2: "zamraża ilość srebrnych monet",
+    h3: "dodaje do 5000 złotych i srebrnych monet"
+  }
+};
+function setLang(lang){
+  document.getElementById('header-desc').innerText = translations[lang].desc;
+  document.getElementById('sec-trainers').innerText = translations[lang].trainers;
+  document.getElementById('sec-reqs').innerText = translations[lang].reqs;
+  document.getElementById('box-platform').innerText = translations[lang].platform;
+  document.getElementById('box-system').innerText = translations[lang].system;
+  document.getElementById('box-lang').innerText = translations[lang].language;
+  document.getElementById('lbl-cheats-1').innerText = translations[lang].cheats;
+  document.getElementById('lbl-cheats-2').innerText = translations[lang].cheats;
+  document.querySelectorAll('.btn-view').forEach(b => b.innerHTML = 'ⓘ ' + translations[lang].view);
+  document.querySelectorAll('.pop-title').forEach(t => t.innerText = translations[lang].p_title);
+  document.getElementById('footer-rights').innerText = translations[lang].rights;
+  document.getElementById('rip-c1').innerText = translations[lang].r1;
+  document.getElementById('rip-c2').innerText = translations[lang].r2;
+  document.getElementById('rip-c3').innerText = translations[lang].r3;
+  document.getElementById('hex-c1').innerText = translations[lang].h1;
+  document.getElementById('hex-c2').innerText = translations[lang].h2;
+  document.getElementById('hex-c3').innerText = translations[lang].h3;
+  document.querySelectorAll('.lang-link').forEach(l => l.classList.remove('active'));
+  event.target.classList.add('active');
+}
+function openPopup(id){
+  document.getElementById('popup-'+id).classList.add('active');
+  document.getElementById('overlay').classList.add('active');
+}
+function closePopup(){
+  document.querySelectorAll('.cheat-popup').forEach(p=>p.classList.remove('active'));
+  document.getElementById('overlay').classList.remove('active');
+}
+</script>
+</body>
+</html>
