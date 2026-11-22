@@ -47,11 +47,11 @@ main{max-width:900px;margin:40px auto;padding:0 20px}
 .lang-link.active{color:#cc0000}
 .lang-link:hover{color:#fff}
 footer{text-align:center;padding:25px;border-top:1px solid #1a1a1a;font-size:.75em;color:#444}
-.cheat-popup{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#111;border:1px solid #22c55e;border-radius:6px;padding:22px 28px 36px;z-index:999;min-width:320px;box-shadow:0 0 30px rgba(34,197,94,.25)}
+.cheat-popup{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#111;border:1px solid #22c55e;border-radius:6px;padding:22px 28px 36px;z-index:999;min-width:320px;max-width:calc(100vw - 16px);overflow-x:auto;box-shadow:0 0 30px rgba(34,197,94,.25)}
 .cheat-popup.active{display:block}
 .cheat-popup h3{font-size:.75em;letter-spacing:2px;text-transform:uppercase;color:#22c55e;margin-bottom:14px;text-align:center}
 .cheat-popup ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.cheat-popup ul li{font-size:.82em;color:#ccc}
+.cheat-popup ul li{font-size:.82em;color:#ccc;white-space:nowrap}
 .cheat-popup ul li strong{color:#fff}
 .cheat-close{position:absolute;bottom:10px;right:12px;font-size:.85em;color:#cc0000;cursor:pointer;line-height:1}
 .cheat-close:hover{color:#ff4444}
@@ -101,6 +101,22 @@ footer{text-align:center;padding:25px;border-top:1px solid #1a1a1a;font-size:.75
         <span class="tag">Steam</span>
         <span class="tag">Windows x64</span>
         <span class="tag">Hexus</span>
+      </div>
+    </div>
+    <div class="project-item">
+      <div class="cheat-row">
+        <span class="cheat-label" id="lbl-cheats-3">Cheats</span>
+        <button class="cheat-btn btn-view" onclick="openPopup('aiinv')">ⓘ View</button>
+      </div>
+      <div class="itch-widget">
+        <iframe frameborder="0" src="https://itch.io/embed/5423637?linkback=true&border_width=2&bg_color=1a0000&fg_color=f5e6c8&link_color=cc0000&border_color=8b0000" width="554" height="169">
+          <a href="https://artgenerator.itch.io/ai-invasion">AI Invasion Trainer by ArtGenerator</a>
+        </iframe>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Steam</span>
+        <span class="tag">Windows x64</span>
+        <span class="tag">AI Invasion</span>
       </div>
     </div>
   </div>
@@ -166,6 +182,18 @@ footer{text-align:center;padding:25px;border-top:1px solid #1a1a1a;font-size:.75
   </ul>
   <span class="cheat-close" onclick="closePopup()">✕</span>
 </div>
+<div class="cheat-popup" id="popup-aiinv">
+  <h3 class="pop-title">Available Cheats</h3>
+  <ul>
+    <li><strong>Ammo</strong> — <span id="ai-c1">unlimited ammo and no reloading</span></li>
+    <li><strong>Recoil</strong> — <span id="ai-c2">no recoil, bullets fly in a straight line</span></li>
+    <li><strong>Damage</strong> — <span id="ai-c3">weapon damage increased x15</span></li>
+    <li><strong>Rate of Fire</strong> — <span id="ai-c4">faster fire and more projectiles (x10)</span></li>
+    <li><strong>Invincibility</strong> — <span id="ai-c5">the entire team takes no damage</span></li>
+    <li><strong>Overheating</strong> — <span id="ai-c6">weapons never overheat</span></li>
+  </ul>
+  <span class="cheat-close" onclick="closePopup()">✕</span>
+</div>
 <script>
 const translations = {
   en: {
@@ -184,7 +212,13 @@ const translations = {
     r3: "damage resistance",
     h1: "freezes the amount of gold coins",
     h2: "freezes the amount of silver coins",
-    h3: "adds up to a max value of 5,000 each"
+    h3: "adds up to a max value of 5,000 each",
+    a1: "unlimited ammo and no reloading",
+    a2: "no recoil, bullets fly in a straight line",
+    a3: "weapon damage increased x15",
+    a4: "faster fire and more projectiles (x10)",
+    a5: "the entire team takes no damage",
+    a6: "weapons never overheat"
   },
   pl: {
     desc: "Dedykowane trainery dla platformy Steam",
@@ -202,7 +236,13 @@ const translations = {
     r3: "odporność na obrażenia",
     h1: "zamraża ilość złotych monet",
     h2: "zamraża ilość srebrnych monet",
-    h3: "dodaje do 5000 złotych i srebrnych monet"
+    h3: "dodaje do 5000 złotych i srebrnych monet",
+    a1: "nieskończona amunicja bez przeładowania",
+    a2: "brak odrzutu, pociski lecą prosto",
+    a3: "obrażenia broni zwiększone x15",
+    a4: "szybsze strzelanie i więcej pocisków (x10)",
+    a5: "cała drużyna nie otrzymuje obrażeń",
+    a6: "broń nigdy się nie przegrzewa"
   }
 };
 function setLang(lang){
@@ -214,6 +254,7 @@ function setLang(lang){
   document.getElementById('box-lang').innerText = translations[lang].language;
   document.getElementById('lbl-cheats-1').innerText = translations[lang].cheats;
   document.getElementById('lbl-cheats-2').innerText = translations[lang].cheats;
+  document.getElementById('lbl-cheats-3').innerText = translations[lang].cheats;
   document.querySelectorAll('.btn-view').forEach(b => b.innerHTML = 'ⓘ ' + translations[lang].view);
   document.querySelectorAll('.pop-title').forEach(t => t.innerText = translations[lang].p_title);
   document.getElementById('footer-rights').innerText = translations[lang].rights;
@@ -223,6 +264,7 @@ function setLang(lang){
   document.getElementById('hex-c1').innerText = translations[lang].h1;
   document.getElementById('hex-c2').innerText = translations[lang].h2;
   document.getElementById('hex-c3').innerText = translations[lang].h3;
+  for (let i = 1; i <= 6; i++) document.getElementById('ai-c'+i).innerText = translations[lang]['a'+i];
   document.querySelectorAll('.lang-link').forEach(l => l.classList.remove('active'));
   event.target.classList.add('active');
 }
