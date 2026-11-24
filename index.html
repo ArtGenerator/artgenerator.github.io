@@ -119,6 +119,22 @@ footer{text-align:center;padding:25px;border-top:1px solid #1a1a1a;font-size:.75
         <span class="tag">AI Invasion</span>
       </div>
     </div>
+    <div class="project-item">
+      <div class="cheat-row">
+        <span class="cheat-label" id="lbl-cheats-4">Cheats</span>
+        <button class="cheat-btn btn-view" onclick="openPopup('squishy')">ⓘ View</button>
+      </div>
+      <div class="itch-widget">
+        <iframe frameborder="0" src="https://itch.io/embed/5432774?linkback=true&border_width=2&bg_color=1a0000&fg_color=f5e6c8&link_color=cc0000&border_color=8b0000" width="554" height="169">
+          <a href="https://artgenerator.itch.io/squishy-the-suicidal-pig-trainer">Squishy The Suicidal Pig Trainer by ArtGenerator</a>
+        </iframe>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Steam</span>
+        <span class="tag">Windows x64</span>
+        <span class="tag">Squishy the Suicidal Pig</span>
+      </div>
+    </div>
   </div>
   <p class="section-title" id="sec-reqs">Requirements</p>
   <div class="info-grid">
@@ -194,6 +210,15 @@ footer{text-align:center;padding:25px;border-top:1px solid #1a1a1a;font-size:.75
   </ul>
   <span class="cheat-close" onclick="closePopup()">✕</span>
 </div>
+<div class="cheat-popup" id="popup-squishy">
+  <h3 class="pop-title">Available Cheats</h3>
+  <ul>
+    <li><strong>Apples</strong> — <span id="sq-c1">one apple counts as all apples in the level</span></li>
+    <li><strong>Suicide</strong> — <span id="sq-c2">instant death, the level counts as completed</span></li>
+    <li><strong>Super Jump</strong> — <span id="sq-c3">jumps about two and a half times higher</span></li>
+  </ul>
+  <span class="cheat-close" onclick="closePopup()">✕</span>
+</div>
 <script>
 const translations = {
   en: {
@@ -218,7 +243,10 @@ const translations = {
     a3: "weapon damage increased x15",
     a4: "faster fire and more projectiles (x10)",
     a5: "the entire team takes no damage",
-    a6: "weapons never overheat"
+    a6: "weapons never overheat",
+    s1: "one apple counts as all apples in the level",
+    s2: "instant death, the level counts as completed",
+    s3: "jumps about two and a half times higher"
   },
   pl: {
     desc: "Dedykowane trainery dla platformy Steam",
@@ -242,7 +270,10 @@ const translations = {
     a3: "obrażenia broni zwiększone x15",
     a4: "szybsze strzelanie i więcej pocisków (x10)",
     a5: "cała drużyna nie otrzymuje obrażeń",
-    a6: "broń nigdy się nie przegrzewa"
+    a6: "broń nigdy się nie przegrzewa",
+    s1: "jedno jabłko liczy się jak wszystkie w poziomie",
+    s2: "natychmiastowa śmierć, poziom zostaje zaliczony",
+    s3: "skoki około dwa i pół raza wyższe"
   }
 };
 function setLang(lang){
@@ -255,6 +286,7 @@ function setLang(lang){
   document.getElementById('lbl-cheats-1').innerText = translations[lang].cheats;
   document.getElementById('lbl-cheats-2').innerText = translations[lang].cheats;
   document.getElementById('lbl-cheats-3').innerText = translations[lang].cheats;
+  document.getElementById('lbl-cheats-4').innerText = translations[lang].cheats;
   document.querySelectorAll('.btn-view').forEach(b => b.innerHTML = 'ⓘ ' + translations[lang].view);
   document.querySelectorAll('.pop-title').forEach(t => t.innerText = translations[lang].p_title);
   document.getElementById('footer-rights').innerText = translations[lang].rights;
@@ -265,6 +297,7 @@ function setLang(lang){
   document.getElementById('hex-c2').innerText = translations[lang].h2;
   document.getElementById('hex-c3').innerText = translations[lang].h3;
   for (let i = 1; i <= 6; i++) document.getElementById('ai-c'+i).innerText = translations[lang]['a'+i];
+  for (let i = 1; i <= 3; i++) document.getElementById('sq-c'+i).innerText = translations[lang]['s'+i];
   document.querySelectorAll('.lang-link').forEach(l => l.classList.remove('active'));
   event.target.classList.add('active');
 }
