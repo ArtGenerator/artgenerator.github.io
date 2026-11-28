@@ -135,6 +135,38 @@ footer{text-align:center;padding:25px;border-top:1px solid #1a1a1a;font-size:.75
         <span class="tag">Squishy the Suicidal Pig</span>
       </div>
     </div>
+    <div class="project-item">
+      <div class="cheat-row">
+        <span class="cheat-label" id="lbl-cheats-5">Cheats</span>
+        <button class="cheat-btn btn-view" onclick="openPopup('gorky')">ⓘ View</button>
+      </div>
+      <div class="itch-widget">
+        <iframe frameborder="0" src="https://itch.io/embed/5446804?linkback=true&border_width=2&bg_color=1a0000&fg_color=f5e6c8&link_color=cc0000&border_color=8b0000" width="554" height="169">
+          <a href="https://artgenerator.itch.io/gorky-17-trainer">Gorky 17 Trainer by ArtGenerator</a>
+        </iframe>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Steam</span>
+        <span class="tag">Windows x64</span>
+        <span class="tag">Gorky 17</span>
+      </div>
+    </div>
+    <div class="project-item">
+      <div class="cheat-row">
+        <span class="cheat-label" id="lbl-cheats-6">Cheats</span>
+        <button class="cheat-btn btn-view" onclick="openPopup('geneforge1')">ⓘ View</button>
+      </div>
+      <div class="itch-widget">
+        <iframe frameborder="0" src="https://itch.io/embed/5463204?linkback=true&border_width=2&bg_color=1a0000&fg_color=f5e6c8&link_color=cc0000&border_color=8b0000" width="554" height="169">
+          <a href="https://artgenerator.itch.io/geneforge-1-trainer">Geneforge 1 Trainer by ArtGenerator</a>
+        </iframe>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Steam</span>
+        <span class="tag">Windows x64</span>
+        <span class="tag">Geneforge 1</span>
+      </div>
+    </div>
   </div>
   <p class="section-title" id="sec-reqs">Requirements</p>
   <div class="info-grid">
@@ -219,6 +251,32 @@ footer{text-align:center;padding:25px;border-top:1px solid #1a1a1a;font-size:.75
   </ul>
   <span class="cheat-close" onclick="closePopup()">✕</span>
 </div>
+<div class="cheat-popup" id="popup-gorky">
+  <h3 class="pop-title">Available Cheats</h3>
+  <ul>
+    <li><strong>Ammo</strong> — <span id="gk-c1">unlimited ammo and throwable items (throwing knives, grenades)</span></li>
+    <li><strong>Damage</strong> — <span id="gk-c2">the team's weapons deal much higher damage</span></li>
+    <li><strong>Experience</strong> — <span id="gk-c3">the team gains experience much faster</span></li>
+    <li><strong>Move Range</strong> — <span id="gk-c4">characters move much farther in a single turn</span></li>
+    <li><strong>Invincibility</strong> — <span id="gk-c5">the team takes no damage</span></li>
+    <li><strong>Weapon Level</strong> — <span id="gk-c6">all weapons work at the maximum level</span></li>
+  </ul>
+  <span class="cheat-close" onclick="closePopup()">✕</span>
+</div>
+<div class="cheat-popup" id="popup-geneforge1">
+  <h3 class="pop-title">Available Cheats</h3>
+  <ul>
+    <li><strong>Coins</strong> — <span id="gf-c1">adds up to 10,000 coins</span></li>
+    <li><strong>Weight</strong> — <span id="gf-c2">unlimited carrying capacity</span></li>
+    <li><strong>Experience</strong> — <span id="gf-c3">the character gains experience much faster</span></li>
+    <li><strong>Resistance</strong> — <span id="gf-c4">100% resistance to fire, poison and other elements</span></li>
+    <li><strong>One Hit Kill</strong> — <span id="gf-c5">an enemy is killed by a single attack</span></li>
+    <li><strong>Skill Points</strong> — <span id="gf-c6">adds up to 500 skill points to spend</span></li>
+    <li><strong>Invincibility</strong> — <span id="gf-c7">the character is completely immune to attacks</span></li>
+    <li><strong>Unlimited AP</strong> — <span id="gf-c8">action points do not decrease during combat</span></li>
+  </ul>
+  <span class="cheat-close" onclick="closePopup()">✕</span>
+</div>
 <script>
 const translations = {
   en: {
@@ -246,7 +304,21 @@ const translations = {
     a6: "weapons never overheat",
     s1: "one apple counts as all apples in the level",
     s2: "instant death, the level counts as completed",
-    s3: "jumps about two and a half times higher"
+    s3: "jumps about two and a half times higher",
+    k1: "unlimited ammo and throwable items (throwing knives, grenades)",
+    k2: "the team's weapons deal much higher damage",
+    k3: "the team gains experience much faster",
+    k4: "characters move much farther in a single turn",
+    k5: "the team takes no damage",
+    k6: "all weapons work at the maximum level",
+    f1: "adds up to 10,000 coins",
+    f2: "unlimited carrying capacity",
+    f3: "the character gains experience much faster",
+    f4: "100% resistance to fire, poison and other elements",
+    f5: "an enemy is killed by a single attack",
+    f6: "adds up to 500 skill points to spend",
+    f7: "the character is completely immune to attacks",
+    f8: "action points do not decrease during combat"
   },
   pl: {
     desc: "Dedykowane trainery dla platformy Steam",
@@ -273,7 +345,21 @@ const translations = {
     a6: "broń nigdy się nie przegrzewa",
     s1: "jedno jabłko liczy się jak wszystkie w poziomie",
     s2: "natychmiastowa śmierć, poziom zostaje zaliczony",
-    s3: "skoki około dwa i pół raza wyższe"
+    s3: "skoki około dwa i pół raza wyższe",
+    k1: "nieskończona amunicja i przedmioty do rzucania (noże, granaty)",
+    k2: "broń drużyny zadaje dużo większe obrażenia",
+    k3: "drużyna zdobywa doświadczenie dużo szybciej",
+    k4: "postacie poruszają się dużo dalej w jednej turze",
+    k5: "drużyna nie otrzymuje obrażeń",
+    k6: "wszystkie bronie działają na maksymalnym poziomie",
+    f1: "dodaje do 10 000 monet",
+    f2: "nieograniczony udźwig",
+    f3: "postać zdobywa doświadczenie dużo szybciej",
+    f4: "100% odporności na ogień, truciznę i inne żywioły",
+    f5: "wróg ginie od jednego ataku",
+    f6: "dodaje do 500 punktów umiejętności do wydania",
+    f7: "postać jest całkowicie odporna na ataki",
+    f8: "punkty akcji nie maleją podczas walki"
   }
 };
 function setLang(lang){
@@ -287,6 +373,8 @@ function setLang(lang){
   document.getElementById('lbl-cheats-2').innerText = translations[lang].cheats;
   document.getElementById('lbl-cheats-3').innerText = translations[lang].cheats;
   document.getElementById('lbl-cheats-4').innerText = translations[lang].cheats;
+  document.getElementById('lbl-cheats-5').innerText = translations[lang].cheats;
+  document.getElementById('lbl-cheats-6').innerText = translations[lang].cheats;
   document.querySelectorAll('.btn-view').forEach(b => b.innerHTML = 'ⓘ ' + translations[lang].view);
   document.querySelectorAll('.pop-title').forEach(t => t.innerText = translations[lang].p_title);
   document.getElementById('footer-rights').innerText = translations[lang].rights;
@@ -298,6 +386,8 @@ function setLang(lang){
   document.getElementById('hex-c3').innerText = translations[lang].h3;
   for (let i = 1; i <= 6; i++) document.getElementById('ai-c'+i).innerText = translations[lang]['a'+i];
   for (let i = 1; i <= 3; i++) document.getElementById('sq-c'+i).innerText = translations[lang]['s'+i];
+  for (let i = 1; i <= 6; i++) document.getElementById('gk-c'+i).innerText = translations[lang]['k'+i];
+  for (let i = 1; i <= 8; i++) document.getElementById('gf-c'+i).innerText = translations[lang]['f'+i];
   document.querySelectorAll('.lang-link').forEach(l => l.classList.remove('active'));
   event.target.classList.add('active');
 }
